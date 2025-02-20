@@ -1,0 +1,983 @@
+{
+	"info": {
+		"_postman_id": "061baf84-2813-4abb-ad9c-f0d4f92273ea",
+		"name": "ToDo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23644579"
+	},
+	"item": [
+		{
+			"name": "CreateTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Limpar o computador\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"pendente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/tasks",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Curso de Java\",\r\n    \"description\": \"\",\r\n    \"status\": \"pendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cf-uEaNCXqHKMnxOOREsbVoYzmMa7Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:26:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"message\": \"Task created successfully\",\n    \"data\": {\n        \"id\": 5,\n        \"title\": \"Curso de Java\",\n        \"description\": \"\",\n        \"status\": \"pendente\",\n        \"createdAt\": \"2025-02-19T23:26:10.935Z\",\n        \"updatedAt\": \"2025-02-19T23:26:10.935Z\"\n    }\n}"
+				},
+				{
+					"name": "BadRequest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"status\": \"pendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-wp1VNlPtZEcaoAeP+F/lnwS1S5c\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:26:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"message\": \"All information must be filled in correctly.\"\n}"
+				},
+				{
+					"name": "InvalidStatus",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Curso de Java\",\r\n    \"description\": \"\",\r\n    \"status\": \"ativo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"54-YC6iOxv4378jHry5T3/62yVLpOE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:26:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid status. Allowed values are: pendente e concluído\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllTasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/tasks",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ErrorInternalServer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-1z6od0u3UXpd9IQ5yJoI4XBuSWw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 21:18:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"A server error occurred. Please try again later.\",\n    \"error\": {}\n}"
+				},
+				{
+					"name": "SuccessRequest",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "647"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"287-qz5Z+Sjs2HtGa9JaULhKRH9vozM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:28:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Request successful!\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Curso de Java\",\n            \"description\": \"\",\n            \"status\": \"pendente\",\n            \"createdAt\": \"2025-02-19T21:20:54.926Z\",\n            \"updatedAt\": \"2025-02-19T21:20:54.926Z\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Limpar o computador\",\n            \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\n            \"status\": \"pendente\",\n            \"createdAt\": \"2025-02-19T21:28:30.937Z\",\n            \"updatedAt\": \"2025-02-19T21:28:30.937Z\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Limpar o quarto\",\n            \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\n            \"status\": \"pendente\",\n            \"createdAt\": \"2025-02-19T21:55:52.060Z\",\n            \"updatedAt\": \"2025-02-19T21:56:12.882Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GetTaskByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/tasks/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessRequest",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks/1",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "201"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c9-2ch38cY8zk6TOw4HfgGUIMjNDfc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:28:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Request successful!\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"Curso de Java\",\n        \"description\": \"\",\n        \"status\": \"pendente\",\n        \"createdAt\": \"2025-02-19T21:20:54.926Z\",\n        \"updatedAt\": \"2025-02-19T21:20:54.926Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteTask",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/tasks/3",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"tasks",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "NotFound",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks/10",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks",
+								"10"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-Oo01oPO/RNDBeizXz9P7DidhAX8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:27:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"No Task found.\"\n}"
+				},
+				{
+					"name": "NoId",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks/",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-XAuPXr16Yb/bpOtDWZQ32yQUdBk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 21:43:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Rota não encontrada\"\n}"
+				},
+				{
+					"name": "SuccessRequest",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/tasks/5",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-VDixOJlT81ZGzUJVQ/u2V1M51ds\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:27:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Task deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateTask",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"title\": \"Limpar o quarto\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"pendente\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/tasks",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SuccessRequest",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"title\": \"Limpar o quarto\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"pendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "279"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"117-GsRgi/g+p3GFeg7nCNLiP9pVQR4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:28:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Task updated successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"Limpar o quarto\",\n        \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\n        \"status\": \"pendente\",\n        \"createdAt\": \"2025-02-19T21:55:52.060Z\",\n        \"updatedAt\": \"2025-02-19T23:28:38.653Z\"\n    }\n}"
+				},
+				{
+					"name": "InvalidBody",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Limpar o quarto\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"pendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d-LCu4JQDEqbmzTcBHUqrRQmDmEqw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:28:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"message\": \"Title, id and status are required.\"\n}"
+				},
+				{
+					"name": "InvalidStatus",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"title\": \"Limpar o quarto\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"ativo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"54-YC6iOxv4378jHry5T3/62yVLpOE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:28:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid status. Allowed values are: pendente e concluído\"\n}"
+				},
+				{
+					"name": "NotFound",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 14,\r\n    \"title\": \"Limpar o quarto\",\r\n    \"description\": \"Limpar toda área do computador: mesa, monitor, teclado, mouse, etc...\",\r\n    \"status\": \"pendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/tasks",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Acess-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Acess-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-Oo01oPO/RNDBeizXz9P7DidhAX8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 23:29:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"No Task found.\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
