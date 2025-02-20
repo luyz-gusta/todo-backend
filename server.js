@@ -8,19 +8,17 @@ dotenv.config();
 
 const app = express();
 
-app.use((request, response, next) => {
-  response.header("Acess-Control-Allow-Origin", "*");
-  response.header(
-    "Acess-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  app.use(cors());
-  next();
-});
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
-app.use('/tasks', taskRoutes);
+app.use("/tasks", taskRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Rota não encontrada" });
