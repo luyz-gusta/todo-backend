@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://todo-frontend-production-2449.up.railway.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
